@@ -1,24 +1,15 @@
-import svgwrite
+import markdown
+import imgkit
 
-def txt_to_svg(input_file, output_file):
-    # Read text from file
-    with open(input_file, 'r') as file:
-        text = file.read()
+# Your markdown text
 
-    # Create an SVG drawing
-    dwg = svgwrite.Drawing(output_file, profile='tiny')
-    dwg.add(dwg.text(text, insert=(10, 20), font_size="16px", font_family="Arial"))
+with open('asciicopy.txt', 'r') as file:
+    file_content = file.read()
 
-    # Save the drawing
-    dwg.save()
+markdown_text = file_content
 
-txt_to_svg('asciicopy.txt', 'output.svg')
- 
+# Convert Markdown to HTML
+html_text = markdown.markdown(markdown_text)
 
-import cairosvg
-
-def convert_svg_to_png(svg_file_path, output_file_path):
-    cairosvg.svg2png(url=svg_file_path, write_to=output_file_path)
-
-# Replace 'input.svg' with your SVG file path and 'output.png' with your desired output file name
-convert_svg_to_png('output.svg', 'output.png')
+# Convert HTML to Image
+imgkit.from_string(html_text, 'output.png')

@@ -1,5 +1,1 @@
-<a href="https://github.com/zigg17/zigg17">
-  <picture>
-    <source srcset="https://raw.githubusercontent.com/zigg17/zigg17/main/output.svg">
-  </picture>
-</a>
+[View the file](/Users/jakeziegler/Desktop/x/projects/zigg17/asciicopy.txt)
